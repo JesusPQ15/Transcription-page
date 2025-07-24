@@ -3,7 +3,7 @@ import whisper
 import tempfile
 
 # Lee el modelo desde la variable de entorno (por defecto "small")
-model_name = os.getenv("WHISPER_MODEL", "small")
+model_name = os.getenv("WHISPER_MODEL", "tiny")
 _model = whisper.load_model(model_name)
 
 
