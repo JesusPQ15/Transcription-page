@@ -1,9 +1,11 @@
-# transcription.py
+import os
 import whisper
 import tempfile
 
-# Carga el modelo una sola vez al importar el módulo
-_model = whisper.load_model("small")
+# Lee el modelo desde la variable de entorno (por defecto "small")
+model_name = os.getenv("WHISPER_MODEL", "small")
+_model = whisper.load_model(model_name)
+
 
 def transcribe_audio_bytes(audio_bytes: bytes, ext: str = "opus") -> str:
     """
